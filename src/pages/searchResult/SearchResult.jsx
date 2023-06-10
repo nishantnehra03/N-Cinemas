@@ -5,7 +5,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import "./style.scss";
 
 import { fetchDataFromApi } from "../../Utils/api";
-import ContentWrapper from "../../components/contentWrapper/contentWrapper";
+import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 import MovieCard from "../../components/movieCard/MovieCard";
 import Spinner from "../../components/spinner/Spinner";
 import noResults from "../../assets/no-results.png";
@@ -28,7 +28,6 @@ const SearchResult = () => {
   };
 
   useEffect(() => {
-    
     fetchInitialData();
   }, [query]);
 

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import dayjs from "dayjs";
 import "./style.scss";
 
-import ContentWrapper from "../../../components/contentWrapper/contentWrapper";
+import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import useFetch from "../../../hooks/useFetch";
 import Genres from "../../../components/genres/Genres";
 import CircleRating from "../../../components/circleRating/CircleRating";
@@ -14,25 +14,25 @@ import { PlayIcon } from "../PlayBtn";
 import VideoPopup from "../../../components/videoPopup/VideoPopup";
 
 const DetailsBanner = ({ video, crew }) => {
-  const [show, setShow] = useState(false);
-  const [videoId, setVideoId] = useState(null);
+        const [show, setShow] = useState(false);
+        const [videoId, setVideoId] = useState(null);
 
-  const { mediaType, id } = useParams();
-  const { data, loading } = useFetch(`/${mediaType}/${id}`);
+        const { mediaType, id } = useParams();
+        const { data, loading } = useFetch(`/${mediaType}/${id}`);
 
-  const { url } = useSelector((state) => state.home);
+        const { url } = useSelector((state) => state.home);
 
-  const _genres = data?.genres?.map((g) => g.id);
+        const _genres = data ? .genres ? .map((g) => g.id);
 
-  const director = crew?.filter((f) => f.job === "Director");
-  const writer = crew?.filter(
-    (f) => f.job === "Screenplay" || f.job === "Story" || f.job === "Writer"
-  );
+        const director = crew ? .filter((f) => f.job === "Director");
+        const writer = crew ? .filter(
+            (f) => f.job === "Screenplay" || f.job === "Story" || f.job === "Writer"
+        );
 
-  const toHoursAndMinutes = (totalMinutes) => {
-    const hours = Math.floor(totalMinutes / 60);
-    const minutes = totalMinutes % 60;
-    return `${hours}h${minutes > 0 ? ` ${minutes}m` : ""}`;
+        const toHoursAndMinutes = (totalMinutes) => {
+                const hours = Math.floor(totalMinutes / 60);
+                const minutes = totalMinutes % 60;
+                return `${hours}h${minutes > 0 ? ` ${minutes}m` : ""}`;
   };
 
   return (
